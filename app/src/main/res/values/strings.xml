@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PasswordUtil</string>
+    <string name="show_password_dialog">show password dialog</string>
+</resources>

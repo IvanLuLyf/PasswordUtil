@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordView">
+        <attr name="border_color" format="color" />
+        <attr name="fore_color" format="color" />
+        <attr name="max_length" format="integer" />
+        <attr name="border_width" format="integer" />
+        <attr name="circle_width" format="integer" />
+    </declare-styleable>
+</resources>
