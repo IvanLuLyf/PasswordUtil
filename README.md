@@ -69,5 +69,4 @@ passwordView.setOnCompleted(new PasswordView.OnCompleted() {
 
 # Effect
 
-<img src="image/view.png" width="480" alt="PasswordView">
-<img src="image/dialog.png" width="480" alt="PasswordDialog">
+<img src="image/view.png" width="320px" alt="PasswordView"><img src="image/dialog.png" width="320px" alt="PasswordDialog">
