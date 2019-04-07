@@ -66,3 +66,8 @@ passwordView.setOnCompleted(new PasswordView.OnCompleted() {
 .build()    //Build the dialog
 .show();    //show the dialog
 ```
+
+# Effect
+
+![PasswordView](image/view.png)
+![PasswordDialog](image/dialog.png)
