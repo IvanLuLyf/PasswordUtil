@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/IvanLuLyf/PasswordUtil.svg)](https://jitpack.io/#IvanLuLyf/PasswordUtil)
 [![API](https://img.shields.io/badge/API-23%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=23)
 [![Build Status](https://travis-ci.org/IvanLuLyf/PasswordUtil.svg?branch=master)](https://travis-ci.org/IvanLuLyf/PasswordUtil)
-[![GitHub](https://img.shields.io/github/license/IvanLuLyf/PasswordUtil.svg?color=blue)](https://github.com/IvanLuLyf/PasswordUtil/blob/master/README.md)
+[![GitHub](https://img.shields.io/github/license/IvanLuLyf/PasswordUtil.svg?color=blue)](https://github.com/IvanLuLyf/PasswordUtil/blob/master/LICENSE)
 
 This repo is made for Password Input like Wechat or Alipay.
 
