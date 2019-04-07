@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 public class PasswordDialogUtil {
     public static class Builder {
         private OnPasswordCompleted onCompleted;
-        private int maxCount;
+        private int maxLength;
         private String title;
         private Context context;
 
@@ -29,8 +29,8 @@ public class PasswordDialogUtil {
             return this;
         }
 
-        public Builder setMaxCount(int maxCount) {
-            this.maxCount = maxCount;
+        public Builder setMaxLength(int maxLength) {
+            this.maxLength = maxLength;
             return this;
         }
 
@@ -49,7 +49,7 @@ public class PasswordDialogUtil {
                         }
                     }).create();
             final PasswordView passwordView = layout.findViewById(R.id.passwordView);
-            passwordView.setMaxCount(maxCount);
+            passwordView.setMaxLength(maxLength);
             passwordView.setOnCompleted(new PasswordView.OnCompleted() {
                 @Override
                 public void onCompleted(String password) {

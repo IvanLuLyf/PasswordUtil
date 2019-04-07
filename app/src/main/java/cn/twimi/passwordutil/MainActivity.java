@@ -2,6 +2,7 @@ package cn.twimi.passwordutil;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cn.twimi.widget.PasswordDialogUtil;
+import cn.twimi.widget.PasswordView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onCompleted(String password) {
 
                     }
-                }).setMaxCount(8).setTitle("Input Password").build().show();
+                }).setMaxLength(8).setTitle("Input Password").build().show();
+            }
+        });
+
+        PasswordView passwordView = findViewById(R.id.passwordView);
+        passwordView.setOnCompleted(new PasswordView.OnCompleted() {
+            @Override
+            public void onCompleted(String password) {
+                // Your logic to process password
             }
         });
     }

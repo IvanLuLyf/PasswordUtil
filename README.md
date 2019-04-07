@@ -30,14 +30,39 @@ dependencies {
 
 # Usage
 
+## Using PasswordView
 ```xml
 <cn.twimi.widget.PasswordView
         android:id="@+id/passwordView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:border_color="#AA0000"
+        app:border_width="4"
+        app:circle_width="8"
+        app:fore_color="#880000"
         app:max_length="6" />
 ```
 
 ```java
+PasswordView passwordView = findViewById(R.id.passwordView);
+passwordView.setOnCompleted(new PasswordView.OnCompleted() {
+    @Override
+    public void onCompleted(String password) {
+        // Your logic to process password
+    }
+});
+```
 
+## Using PasswordDialogUtil
+```java
+(new PasswordDialogUtil.Builder(MainActivity.this)).setOnCompleted(new PasswordDialogUtil.OnPasswordCompleted() {
+    @Override
+    public void onCompleted(String password) {
+        // Your logic to process password
+    }
+})
+.setMaxLength(8)    //Set password's max length
+.setTitle("Input Password") //Set dialog title
+.build()    //Build the dialog
+.show();    //show the dialog
 ```

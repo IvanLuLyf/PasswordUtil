@@ -16,31 +16,36 @@ public class PasswordView extends AppCompatEditText {
 
     private final int DEFAULT_BORDER_WIDTH = 3;
     private final int DEFAULT_CIRCLE_WIDTH = 6;
-    private final int DEFAULT_MAX_COUNT = 6;
+    private final int DEFAULT_MAX_LENGTH = 6;
     private final int DEFAULT_BORDER_COLOR = -10066330;
     private final int DEFAULT_FORE_COLOR = -13421773;
 
     private int width;
     private int height;
+
     private int divideLineX;
     private int circleX;
-    private int maxCount;
+
+    private int maxLength;
     private int inputLength;
+
     private int borderWidth;
     private int circleWidth;
+
     private Paint paintLine;
     private Paint paintCircle;
+
     private Context context;
 
     private OnCompleted onCompleted;
 
     public PasswordView(Context context) {
         this(context, null);
-        maxCount = DEFAULT_MAX_COUNT;
         borderWidth = DEFAULT_BORDER_WIDTH;
         circleWidth = DEFAULT_CIRCLE_WIDTH;
-        initPaint(DEFAULT_BORDER_COLOR, DEFAULT_FORE_COLOR);
-        this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxCount)});
+        setBorderColor(DEFAULT_BORDER_COLOR);
+        setForeColor(DEFAULT_FORE_COLOR);
+        setMaxLength(DEFAULT_MAX_LENGTH);
     }
 
     public PasswordView(Context context, AttributeSet attrs) {
@@ -49,34 +54,38 @@ public class PasswordView extends AppCompatEditText {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PasswordView);
         int borderColor = typedArray.getColor(R.styleable.PasswordView_border_color, DEFAULT_BORDER_COLOR);
         int foreColor = typedArray.getColor(R.styleable.PasswordView_fore_color, DEFAULT_FORE_COLOR);
-        maxCount = typedArray.getInteger(R.styleable.PasswordView_max_length, DEFAULT_MAX_COUNT);
+        maxLength = typedArray.getInteger(R.styleable.PasswordView_max_length, DEFAULT_MAX_LENGTH);
         borderWidth = typedArray.getInteger(R.styleable.PasswordView_border_width, DEFAULT_BORDER_WIDTH);
         circleWidth = typedArray.getInteger(R.styleable.PasswordView_circle_width, DEFAULT_CIRCLE_WIDTH);
         typedArray.recycle();
 
-        this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxCount)});
+        setMaxLength(maxLength);
+        setBorderColor(borderColor);
+        setForeColor(foreColor);
+
         this.setBackgroundColor(Color.TRANSPARENT);
         this.setCursorVisible(false);
         this.setInputType(InputType.TYPE_CLASS_NUMBER);
-        initPaint(borderColor, foreColor);
     }
 
     public void setOnCompleted(OnCompleted onCompleted) {
         this.onCompleted = onCompleted;
     }
 
-    public void setMaxCount(int maxCount) {
-        this.maxCount = maxCount;
-        this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxCount)});
+    public void setMaxLength(int maxLength) {
+        this.maxLength = maxLength;
+        this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
     }
 
-    private void initPaint(int borderColor, int foreColor) {
+    public void setBorderColor(int borderColor) {
         paintLine = new Paint();
         paintLine.setStrokeWidth(borderWidth);
         paintLine.setColor(borderColor);
         paintLine.setAntiAlias(true);
         paintLine.setStyle(Paint.Style.STROKE);
+    }
 
+    public void setForeColor(int foreColor) {
         paintCircle = new Paint();
         paintCircle.setColor(foreColor);
         paintCircle.setAntiAlias(true);
@@ -88,7 +97,7 @@ public class PasswordView extends AppCompatEditText {
         super.onSizeChanged(w, h, oldw, oldh);
         height = h;
         width = w;
-        divideLineX = w / maxCount;
+        divideLineX = w / maxLength;
         circleX = divideLineX / 2;
     }
 
@@ -103,7 +112,7 @@ public class PasswordView extends AppCompatEditText {
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
         inputLength = text.length();
-        if (inputLength >= maxCount) {
+        if (inputLength >= maxLength) {
             if (onCompleted != null) {
                 onCompleted.onCompleted(text.toString());
             }
@@ -112,7 +121,7 @@ public class PasswordView extends AppCompatEditText {
     }
 
     private void drawDivideLine(Canvas canvas) {
-        for (int i = 0; i < maxCount - 1; i++) {
+        for (int i = 0; i < maxLength - 1; i++) {
             canvas.drawLine((i + 1) * divideLineX, borderWidth / 2.0f, (i + 1) * divideLineX, height - borderWidth, paintLine);
         }
     }
