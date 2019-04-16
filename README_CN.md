@@ -5,13 +5,11 @@
 [![Build Status](https://travis-ci.org/IvanLuLyf/PasswordUtil.svg?branch=master)](https://travis-ci.org/IvanLuLyf/PasswordUtil)
 [![GitHub](https://img.shields.io/github/license/IvanLuLyf/PasswordUtil.svg?color=blue)](https://github.com/IvanLuLyf/PasswordUtil/blob/master/LICENSE)
 
-This repo is made for Password Input like Wechat or Alipay.
+一个模仿微信支付和支付宝的密码输入框.
 
-[中文](README_CN.md)
+## 项目配置
 
-# Configure
-
-Add it in your root build.gradle at the end of repositories:
+添加以下内容到项目的build.gradle文件里面:
 
 ```gradle
 allprojects {
@@ -22,7 +20,7 @@ allprojects {
 }
 ```
 
-Add the dependency
+添加项目依赖
 
 ```gradle
 dependencies {
@@ -30,9 +28,9 @@ dependencies {
 }
 ```
 
-# Usage
+## 使用
 
-## Using PasswordView
+### 直接使用PasswordView
 ```xml
 <cn.twimi.widget.PasswordView
         android:id="@+id/passwordView"
@@ -50,25 +48,25 @@ PasswordView passwordView = findViewById(R.id.passwordView);
 passwordView.setOnCompleted(new PasswordView.OnCompleted() {
     @Override
     public void onCompleted(String password) {
-        // Your logic to process password
+        // 处理密码的逻辑
     }
 });
 ```
 
-## Using PasswordDialogUtil
+### 使用PasswordDialogUtil
 ```java
 (new PasswordDialogUtil.Builder(MainActivity.this)).setOnCompleted(new PasswordDialogUtil.OnPasswordCompleted() {
     @Override
     public void onCompleted(String password) {
-        // Your logic to process password
+        // 处理密码的逻辑
     }
 })
-.setMaxLength(8)    //Set password's max length
-.setTitle("Input Password") //Set dialog title
-.build()    //Build the dialog
-.show();    //show the dialog
+.setMaxLength(8)    // 设置密码的最大长度
+.setTitle("输入密码") // 设置对话框标题
+.build()    // 构建对话框
+.show();    // 显示对话框
 ```
 
-# Effect
+## 效果图
 
 <img src="image/view.png" width="320px" alt="PasswordView"><img src="image/dialog.png" width="320px" alt="PasswordDialog">

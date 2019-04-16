@@ -1,7 +1,7 @@
 package cn.twimi.passwordutil;
 
 import androidx.appcompat.app.AppCompatActivity;
-import cn.twimi.widget.PasswordDialogUtil;
+import cn.twimi.util.PasswordDialogUtil;
 import cn.twimi.widget.PasswordView;
 
 import android.os.Bundle;

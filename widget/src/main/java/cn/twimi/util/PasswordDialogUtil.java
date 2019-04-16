@@ -1,4 +1,4 @@
-package cn.twimi.widget;
+package cn.twimi.util;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AlertDialog;
+import cn.twimi.widget.PasswordView;
+import cn.twimi.widget.R;
 
 public class PasswordDialogUtil {
     public static class Builder {
